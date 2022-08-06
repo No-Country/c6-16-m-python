@@ -2,10 +2,19 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.shortcuts import redirect
 
+from django.contrib.auth import logout
+# cierra la sesion
 from django.contrib.auth import login
 # genera la sesion
 from django.contrib.auth import authenticate
+
+from .forms import RegisterForm
 # para autenticar usuarios
+
+from .forms import RegisterForm
+
+from django.contrib.auth.models import User
+# da de alta nuevos usuarios
 
 def index(request):
     return render(request, 'index.html')
@@ -44,3 +53,36 @@ def login_view(request):
 
     })
 
+def logout_view(request):
+    logout(request)
+    messages.success(request, "Sesion cerrada exitosamente.")
+    return redirect('login')
+
+def register_view(request):
+    # Trae el formulario y se debe agregar al contexto
+    form = RegisterForm(request.POST or None)    
+    # Si el metodo es post se genera un formulario con los datos del usuario
+    # Si la peticion no es POST es decir None el formulario es vacio
+
+    # is_valid nos indica si el formulario es valido
+    if request.method == 'POST' and form.is_valid():
+        #si es valido se obtienen los datos
+        
+        """ SE OPTIMIZA ESTE CODIGO POR FORMS.SAVE
+        username = form.cleaned_data.get('username')
+        email = form.cleaned_data.get('email')
+        password = form.cleaned_data.get('password')
+        """
+        
+
+        # crear nuevo usuario 
+        user = form.save() # retorna objeto user
+        if user:
+            login(request,user)
+            messages.success(request, 'Usuario creado exitosamente')
+            return redirect('index')
+
+
+    return render(request, 'users/register.html', {
+        'form': form
+    })
