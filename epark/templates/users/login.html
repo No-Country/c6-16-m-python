@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container" style="height: 100vh; font-size: 32px ; display: flex; justify-content: center; align-items: center;">
+        <div class="row" >
+
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'success' %}
+                    <div class="alert-success" style="background:green; font-size: 18px ; color: aliceblue; text-align: center; width: 500px;">
+                        {{ message }}
+                    </div>
+                    {% else %}
+                    <div class="alert-error" style="background:red">
+                        {{ message }}
+                        <div class="close-bt" type="button" data-dismiss="alert">X</div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+
+            <div class="col">
+                <h2>LOGIN</h2>
+            </div>
+            <br>
+
+            <form action="" method="post" id="">
+                {% csrf_token %}
+                <div>                
+                    <label for="username" name="">Username</label>
+                    <input type="text" name="username" id="username" id="">
+                </div>
+                <br>
+                <br>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="">
+                </div>    
+
+                <button type="submit">Login </button>
+            </form>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

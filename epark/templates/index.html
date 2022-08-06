@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epark</title>
+</head>
+<body>
+    <div class="container">
+        {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'success' %}
+                    <div class="alert-success" style="display: flex; justify-content: center; background:green; font-size: 18px ; color: aliceblue; text-align: center; width: 500px;">
+                        {{ message }}
+                    </div>
+                    <button class="close-bt" type="button" data-dismiss="alert">X</button>
+                    {% else %}
+                    <div class="alert-error" style="background:red">
+                        {{ message }}
+                        <button class="close-bt" type="button" data-dismiss="alert">X</button>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+
+            <h3 style="font-size: 40px; text-align: center">PAGINA PRINCIPAL</h3>
+    </div>
+</body>
+</html>
