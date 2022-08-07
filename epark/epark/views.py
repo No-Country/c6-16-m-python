@@ -25,18 +25,18 @@ def login_view(request):
     # si se presiono el boton, obtiene el input name username y password 
 
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        email = request.POST.get('email')
+        password = request.POST.get('password')        
         
         # busca en la base de datos un usuario que tenga ese username y contranseña
         # si existe nos retorna un objeto User almacenable si no existe nos retorna NONE
-        user = authenticate(username=username, password=password)
+        user = authenticate(email=email, password=password)
         
         if user: 
             # para generar una sesion necesita peticion (request) y el usuario (user)
             login(request, user)
             # Mensaje de login correcto 
-            messages.success(request, "Bienvnido {}".format(username))
+            messages.success(request, "Bienvnido {}".format(email))
             # se debe colocar en el template si hay mensajes para visualizarlos
             
             # concretada lo anterior redirije al string que se coloca dentro. 

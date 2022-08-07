@@ -1,29 +1,24 @@
+from cProfile import label
 from django import forms
 
 from django.contrib.auth.models import User
 
 class RegisterForm(forms.Form):
-    username = forms.CharField(required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Username'}))
-    email = forms.EmailField(required=True)
-    password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Password'}))
-    password2 = forms.CharField(label='repetir contraseña', required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Password'}))
-
-    # valida username
-    def clean_username(self):
-        # obtiene la informacion del input 
-        username = self.cleaned_data.get('username')
-        # exister el username o no 
-        if User.objects.filter(username=username).exists():
-             # si existe un usuario con ese username
-            raise forms.ValidationError('El username ya existe')
-        return username
-
+    name = forms.CharField(label='Nombre',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Nombre'}))    
+    lastname = forms.CharField(label='Apellido', required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Apellido'}))
+    email = forms.EmailField(required=True)    
+    phone = forms.CharField(label='telefono',required=True)
+    country = forms.CharField(label='Pais',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Su nacionalidad'}))
+    city = forms.CharField(label='Ciudad',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Su Ciudad'}))
+    password = forms.CharField(label='Contraseña',required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Escriba su contraseña'}))
+    password2 = forms.CharField(label='Repetir contraseña', required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Repita su contraseña'}))
+    
     def clean_email(self):
         # obtiene la informacion del input 
         email = self.cleaned_data.get('email')
-        # exister el username o no 
+        # exister el name o no 
         if User.objects.filter(email=email).exists():
-             # si existe un usuario con ese username
+             # si existe un usuario con ese name
             raise forms.ValidationError('El email ya existe')
         return email
 
@@ -37,7 +32,7 @@ class RegisterForm(forms.Form):
 
     def save(self):
         return User.objects.create_user(
-            self.cleaned_data.get('username'),
+            self.cleaned_data.get('name'),
             self.cleaned_data.get('email'),
             self.cleaned_data.get('password'),
         )
