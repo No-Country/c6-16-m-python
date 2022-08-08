@@ -19,6 +19,17 @@
             {% endfor %}
         {% endif %}
 
+        <nav>
+            <div style="display:flex ; justify-content:flex-end; gap:30px">
+                <a href="{% url 'login' %}">
+                    <button style="height:50px ; width: 90px; background: orange">Ingresar</button>
+                </a>
+                <a href="{% url 'register' %}">
+                    <button style="height:50px ; width: 90px; background: orange">Registro</button>
+                </a>
+            </div>
+        </nav>
+
 
             <h3 style="font-size: 40px; text-align: center">PAGINA PRINCIPAL</h3>
     </div>
