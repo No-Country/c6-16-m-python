@@ -16,12 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from parking.views import ParkingListView
+from django.urls import include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("user/login", views.login_view, name="login"),
     path("user/logout", views.logout_view, name="logout"),
     path("user/register", views.register_view, name="register"),
+    path("parking/parkings", ParkingListView.as_view(), name="parking"),
     path("", views.index, name='index'),
+    path('parking/', include('parking.urls'))
 
 ]

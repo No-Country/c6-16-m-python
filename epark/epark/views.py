@@ -16,6 +16,8 @@ from .forms import RegisterForm
 from django.contrib.auth.models import User
 # da de alta nuevos usuarios
 
+from parking.models import Parking
+
 def index(request):
     return render(request, 'index.html')
 
@@ -85,4 +87,11 @@ def register_view(request):
 
     return render(request, 'users/register.html', {
         'form': form
+    })
+
+def parking_view(request):
+    parkings = Parking.objects.all()
+
+    return render(request, 'parking/parkings.html', {
+        'parkings': parkings,
     })
