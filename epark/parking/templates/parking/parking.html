@@ -1,5 +1,6 @@
 
-
+{% extends 'base.html' %}
+    {% block content %}
 <div class="col">
     <div class="h1">
         {{ parking.title}}
@@ -20,3 +21,4 @@
         Precio Año: <span>{{ parking.price_year}}</span>
     </div>
 </div>
+    {% endblock %}

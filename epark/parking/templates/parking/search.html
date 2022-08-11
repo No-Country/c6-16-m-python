@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+    {% block content %}
+    <div class="col">
+        <p>Busqueda de Estacionamientos</p>
+    
+        {% include 'parking/snippets/search.html' with query=query %}
+        <hr>
+        <p>Resultados para {{ query }} </p>
+    
+        {%  include 'parking/snippets/list.html' %}
+        
+    </div>
+    {% endblock %}

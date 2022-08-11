@@ -26,3 +26,19 @@ class ParkingDetailView(DetailView):
         # toma los contextos
         
         return context
+
+
+class ParkingSearchListView(ListView):
+    template_name = 'parking/search.html'    
+
+    def get_queryset(self):
+        return Parking.objects.filter(title__icontains=self.query())
+
+    def query(self):
+        return self.request.GET.get('q')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # toma los contextos
+        context['query'] = self.query()        
+        return context
