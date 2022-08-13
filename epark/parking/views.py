@@ -41,4 +41,5 @@ class ParkingSearchListView(ListView):
         context = super().get_context_data(**kwargs)
         # toma los contextos
         context['query'] = self.query()        
+        context['count'] = context['object_list'].count()
         return context

@@ -2,15 +2,9 @@
     {% block content %}
     <div class="row">
         {% include 'parking/snippets/search.html' %}
-        {% for parking in parkings %}
+        {% for parking in object_list %}
         <div class="col-3 mt-5">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">{{ parking.title }} </h5>
-                    <p class="card-ted">{{ parking.address }} </p>
-                    <button><a href="" class="btn btn-primary">Seleccionar</a></button> 
-                </div>
-            </div>
+            {% include 'parking/snippets/parking.html' %}
         </div>
         {% endfor %}
     </div>
