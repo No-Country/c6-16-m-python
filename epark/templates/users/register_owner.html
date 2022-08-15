@@ -8,7 +8,6 @@
                 <!-- FORMULARIO -->
                 <form action="" method="post">
                  {% csrf_token %}
-                
                 <!--    
                 <div class="form-group">
                     {{ form.username.label_tag}}
@@ -25,9 +24,9 @@
                     {{ form.password }}
                 </div>
                 -->
-                
-                    {% for field in form %}
-                    <div class="form-group">
+
+                    {% for field in formOwner %}
+                    <div class="formOwner-group">
                         {{ field.label_tag }}
                         {{ field }}
 

@@ -5,7 +5,7 @@
         <h2>LOGIN</h2>
     </div>
     <br>
-
+    <p>PAGINA DE INGRESO DEL ADMINISTRADOR DE PARQUEADERO</p>
     <form action="" method="post" id="">
         {% csrf_token %}
         <div>                
@@ -25,9 +25,9 @@
     <div class="section mt-4">
         <div class="container">
             <h2>Regístrate como usuario final</h2>
-            <a href="{% url 'register' %}">
+            """<a href="{% url 'register' %}">
                 <button class="btn btn-primary">Registro para usuario final</button>
-            </a>
+            </a>"""
             <h2>¿Tienes un parqueadero privado?</h2>
             <h2>Regístrate como dueño de parqueaderos</h2>
             <a href="{% url 'register_owner' %}">
