@@ -4,14 +4,14 @@ from django import forms
 from django.contrib.auth.models import User
 
 class RegisterForm(forms.Form):
-    name = forms.CharField(label='Nombre',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Nombre'}))    
-    lastname = forms.CharField(label='Apellido', required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Apellido'}))
-    email = forms.EmailField(required=True)    
-    phone = forms.CharField(label='telefono',required=True)
-    country = forms.CharField(label='Pais',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Su nacionalidad'}))
-    city = forms.CharField(label='Ciudad',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Su Ciudad'}))
-    password = forms.CharField(label='Contraseña',required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Escriba su contraseña'}))
-    password2 = forms.CharField(label='Repetir contraseña', required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Repita su contraseña'}))
+    name = forms.CharField(label='Nombre',required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Nombre'}))    
+    lastname = forms.CharField(label='Apellido', required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Apellido'}))
+    email = forms.EmailField(label='Escriba su E-mail', required=True,widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'E-mail'}))    
+    phone = forms.CharField(label='telefono',required=True,widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Numero de Telefono'}))
+    country = forms.CharField(label='Pais',required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Su nacionalidad'}))
+    city = forms.CharField(label='Ciudad',required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Su Ciudad'}))
+    password = forms.CharField(label='Contraseña',required=True, widget=forms.PasswordInput(attrs={'class': "form-input", 'placeholder':'Escriba su contraseña'}))
+    password2 = forms.CharField(label='Repetir contraseña', required=True, widget=forms.PasswordInput(attrs={'class': "form-input", 'placeholder':'Repita su contraseña'}))
     
     def clean_email(self):
         # obtiene la informacion del input 

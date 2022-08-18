@@ -25,7 +25,7 @@ def index(request):
 def login_view(request):
     # request.method es POST cuando se toca el boton enviar en el login
     # si se presiono el boton, obtiene el input name username y password 
-
+  
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')        
