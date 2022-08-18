@@ -8,10 +8,9 @@ from django.contrib.auth import login
 # genera la sesion
 from django.contrib.auth import authenticate
 
-from .forms import RegisterForm,RegisterFormOwner
-# para autenticar usuarios
-
 from .forms import RegisterForm
+from .forms import RegisterFormOwner
+# para autenticar usuarios
 
 from django.contrib.auth.models import User
 # da de alta nuevos usuarios
