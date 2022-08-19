@@ -1,0 +1,75 @@
+{% load static %}
+<section class="menu">
+    <nav class="menu__container">
+        
+        <ul class="menu__links mt-3"> <!--primer menu-->
+            <img style="border-radius: 30%; padding: 10px;" src="../../static/image/epark.png">
+            <li class="menu__item">
+                <a href="#" class="menu__link">Como Funciona</a>
+            </li>
+
+            <li class="menu__item menu__item--show"> <!-- item--show que tenga esa clase como modificador-->
+                <a href="#" class="menu__link">Parkings <img src="{% static 'assets/arrow.svg' %}" class="menu__arrow"></a> <!--imagen que tendra dentro un submenu y referencia assets-->
+
+                <ul class="menu__nesting"><!--para hacer el menu desplegable, un menu anidado-->
+                    <li class="menu__inside"> <!-- meunu interno-->
+                        <a href="#" class="menu__link menu__link--inside">Usuario</a> <!--menu modificador-->
+                    </li>
+                    <li class="menu__inside">
+                        <a href="#" class="menu__link menu__link--inside">Administrador</a>
+                    </li>
+                    <li class="menu__inside">
+                        <a href="{% url 'parking' %} " class="menu__link menu__link--inside">Estacionamientos</a>
+                    </li>
+                </ul>
+            </li>
+
+            <!--
+            <li class="menu__item menu__item--show">
+                 
+                <a href="#" class="menu__link">About <img src="{% static 'assets/arrow.svg' %}" class="menu__arrow"></a>
+
+                <ul class="menu__nesting">
+                    <li class="menu__inside">
+                        <a href="#" class="menu__link menu__link--inside">About 1</a>
+                    </li>
+                    <li class="menu__inside">
+                        <a href="#" class="menu__link menu__link--inside">About 2</a>
+                    </li>
+                    <li class="menu__inside">
+                        <a href="#" class="menu__link menu__link--inside">About 3</a>
+                    </li>
+                </ul>
+            </li>-->
+
+            <li class="menu__item">
+                <a href="#" class="menu__link">contacto</a>
+            </li>
+
+            <li class="menu__item">
+                <a href="{% url 'login' %}" class="menu__link">Ingresar</a>
+            </li>
+            <li class="menu__item">
+                <a href="{% url 'register' %}" class="menu__link">Registrarse</a>
+            </li>
+
+        </ul>
+        
+    </nav>
+    <!--  
+    <section class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox">
+        <label class="menu__btn" for="menu__toggle">
+        <span></span>
+        </label>
+
+        <ul class="menu__box">
+            <li><a class="menu__item_box" href="#">Home</a></li>
+            <li><a class="menu__item_box" href="{% url 'register' %}">Registar</a></li>
+            <li><a class="menu__item_box" href="{% url 'login' %}">Ingresar</a></li>
+            <li><a class="menu__item_box" href="#">Contact</a></li>
+           
+        </ul>
+    </section>
+    -->
+</section>
