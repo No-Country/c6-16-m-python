@@ -2,6 +2,6 @@
     <div class="card-body">
         <h5 class="card-title">{{ parking.title }} </h5>
         <p class="card-ted">{{ parking.address }} </p>
-        <a href="" class="btn btn-primary"><button>Seleccionar</button></a>
+        <a href="{% url 'parking' parking.slug %}"> <button  class="btn btn-primary">Seleccionar</button></a>
     </div>
 </div>
