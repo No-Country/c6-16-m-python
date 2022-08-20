@@ -12,8 +12,10 @@ from .forms import RegisterForm
 from .forms import RegisterFormOwner
 # para autenticar usuarios
 
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+# se deja de usar para utilizar la personalizada
 # da de alta nuevos usuarios
+from users.models import User
 
 from parking.models import Parking
 
@@ -85,6 +87,8 @@ def logout_view(request):
     return redirect('login')
 
 def register_view(request):
+    if request.user.is_authenticated:
+        return redirect('index')
     # Trae el formulario y se debe agregar al contexto
     form = RegisterForm(request.POST or None)    
     # Si el metodo es post se genera un formulario con los datos del usuario
@@ -143,3 +147,9 @@ def parking_view(request):
     return render(request, 'parking/parkings.html', {
         'parkings': parkings,
     })
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'La sesion ha sido cerrada')
+    return redirect('index')
+
