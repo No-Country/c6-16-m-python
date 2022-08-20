@@ -2,6 +2,7 @@
 
 {% url 'login' as login %}
 {% url 'register' as register %}
+{% url 'tikets:tiket' as tiket %}
 <section class="menu">
     <nav class="menu__container">
         
@@ -48,6 +49,9 @@
             {% if user.is_authenticated %}
             <li class="menu__item">
                 <a href="{% url 'logout' %}" class="menu__link">Salir</a>
+            </li>
+            <li class="menu__item">
+                <a href="{{ tiket }}" class="menu__link">Mis Reservas</a>
             </li>
             {% else %}
 
