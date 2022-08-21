@@ -1,10 +1,27 @@
 {% extends 'base.html' %}
 
     {% block content %}
-    
-    <div class="col">       
+    <link rel="icon" type="image/png" href="images/icons/epark.png"/>
+        <div class="col">       
+            <h4 class=m-2 style="font-size: 25px; text-align: center">Aqui se pondria alguna indicacion en caso de necesitarlo</h4>
+        </div>
+        
+        <div class="container">
+        {% include 'parking/snippets/search.html' %}
+           <div class="row ">
+                <div class=" col-md-4 text-left"> 
+                        <div class="col-md-8 mt-3">
+                                {% for parking in parkings %}
+                                <div class="mt-3">
+                                {% include 'parking/snippets/parking.html' %}
+                                </div>
+                                {% endfor %}
+                        </div>    
+                </div>   
+                <div class="col-lg-5 col-md-6 home-about-right mt-3">
+                        <img src="../../static/image/mapa.png" height="500" width="700" alt="" style="border-radius: 2%;">
 
-            <h3 style="font-size: 40px; text-align: center">PAGINA PRINCIPAL</h3>
-    </div>
-    
+                </div>     
+            </div>
+        </div>
     {% endblock %}   

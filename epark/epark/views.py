@@ -18,8 +18,10 @@ from django.contrib.auth.models import User
 from parking.models import Parking
 
 def index(request):
-    return render(request, 'index.html')
-
+    parkings = Parking.objects.all()
+    return render(request, 'index.html', {
+        'parkings': parkings,
+    })
 
 def login_view(request):
     # request.method es POST cuando se toca el boton enviar en el login
