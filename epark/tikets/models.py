@@ -21,4 +21,5 @@ class Tiket(models.Model):
 def set_tiket_id(sender, instance, *args, **kwargs):
     if not instance.tiket_id:
         instance.tiket_id = str(uuid.uuid4())
+        
 pre_save.connect(set_tiket_id, sender=Tiket)
