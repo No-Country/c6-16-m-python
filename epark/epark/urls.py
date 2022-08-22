@@ -29,6 +29,7 @@ urlpatterns = [
     path("parking/", include('parking.urls')),
     path("owner/register", views.register_owner_view, name="register_owner"),
     path("owner/login", views.login_owner_view, name="login_owner"),
+    path("snippets/contact", views.contact_view, name="contact")
     #path("owner/logout", views.logout_owner_view, name="logout_owner"),
     
 ]

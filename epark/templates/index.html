@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
 
-    {% block content %}
-    
-    <div class="col">       
+{% block content %}
 
-            <h3 style="font-size: 40px; text-align: center">PAGINA PRINCIPAL</h3>
-    </div>
-    
-    {% endblock %}   
+<div class="col">
+
+
+        {% include 'parking/snippets/search.html' %}
+
+
+</div>
+
+<div class="col">
+        <img src="{%static 'image/map.jpg'%}" alt="mapa">
+</div>
+
+{% endblock %}

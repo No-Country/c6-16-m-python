@@ -73,3 +73,7 @@ class RegisterFormOwner(forms.Form):
             self.cleaned_data.get('emailOwner'),
             self.cleaned_data.get('passwordOwner'),
         )
+
+class ContactForm(forms.Form):
+    contactForm = ""
+    # TODO definir este metodo

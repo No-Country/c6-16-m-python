@@ -1,19 +1,26 @@
 {% load static %}
 <section class="menu">
     <nav class="menu__container">
-        <h1 class="menu__logo">E-PARK.</h1>
-
-        <ul class="menu__links"> <!--primer menu-->
+        <h1> <a href="{% url 'index' %}">
+                <img class="menu__logo" src="{%static 'image/logo.png' %}"></a></h1>
+        <ul class="menu__links">
+            <!--primer menu-->
             <li class="menu__item">
                 <a href="#" class="menu__link">Como Funciona</a>
             </li>
 
-            <li class="menu__item menu__item--show"> <!-- item--show que tenga esa clase como modificador-->
-                <a href="#" class="menu__link">Parkings <img src="{% static 'assets/arrow.svg' %}" class="menu__arrow"></a> <!--imagen que tendra dentro un submenu y referencia assets-->
+            <li class="menu__item menu__item--show">
+                <!-- item--show que tenga esa clase como modificador-->
+                <a href="#" class="menu__link">Parkings <img src="{% static 'assets/arrow.svg' %}"
+                        class="menu__arrow"></a>
+                <!--imagen que tendra dentro un submenu y referencia assets-->
 
-                <ul class="menu__nesting"><!--para hacer el menu desplegable, un menu anidado-->
-                    <li class="menu__inside"> <!-- meunu interno-->
-                        <a href="#" class="menu__link menu__link--inside">Usuario</a> <!--menu modificador-->
+                <ul class="menu__nesting">
+                    <!--para hacer el menu desplegable, un menu anidado-->
+                    <li class="menu__inside">
+                        <!-- meunu interno-->
+                        <a href="#" class="menu__link menu__link--inside">Usuario</a>
+                        <!--menu modificador-->
                     </li>
                     <li class="menu__inside">
                         <a href="#" class="menu__link menu__link--inside">Administrador</a>
@@ -40,8 +47,9 @@
                     </li>
                 </ul>
             </li>
+
             <li class="menu__item">
-                <a href="#" class="menu__link">contacto</a>
+                <a href="{% url 'contact' %}" class="menu__link">Contacto</a>
             </li>
 
             <li class="menu__item">
@@ -49,20 +57,7 @@
             </li>
 
         </ul>
-        
-    </nav>
-    <section class="hamburger-menu">
-        <input id="menu__toggle" type="checkbox">
-        <label class="menu__btn" for="menu__toggle">
-        <span></span>
-        </label>
 
-        <ul class="menu__box">
-            <li><a class="menu__item_box" href="#">Home</a></li>
-            <li><a class="menu__item_box" href="#">Registar</a></li>
-            <li><a class="menu__item_box" href="#">Ingresar</a></li>
-            <li><a class="menu__item_box" href="#">Contact</a></li>
-           
-        </ul>
-    </section>
+    </nav>
+
 </section>
