@@ -1,7 +1,10 @@
 from cProfile import label
 from django import forms
 
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+# se deja de usar para utilizar la personalizada
+
+from users.models import User 
 
 class RegisterForm(forms.Form):
     name = forms.CharField(label='Nombre',required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Nombre'}))    

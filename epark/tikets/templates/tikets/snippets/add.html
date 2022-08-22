@@ -1,0 +1,6 @@
+<form action="{% url 'tikets:add' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="parking_id" value="{{ parking.id }} ">
+    <button type="submit" class="btn btn-warning"> Reservar Parking </button>
+
+</form>

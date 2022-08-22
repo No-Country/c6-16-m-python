@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    <div class="col">
+        <div class="h3">
+            Reserva de Parking Agregada
+        </div>
+        <div>
+            <a href="{% url 'parking:parking' parking.slug %} "></a>
+            {{ parking.title }}
+        </div>
+    </div>
+{% endblock %}
