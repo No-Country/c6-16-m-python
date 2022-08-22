@@ -3,7 +3,7 @@ from .models import Parking
 # Register your models here.
 
 class ParkingAdmin(admin.ModelAdmin):
-    fields = ('title', 'address', 'price_hour','price_day','price_week','price_year','stock')
+    fields = ('title', 'address_p', 'price_hour','price_day','price_week','price_month','slots')
     list_display = ('__str__', 'slug', 'created_at')
 
 
