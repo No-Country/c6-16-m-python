@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content%}
+    <div class="col">
+        <div class="h1">
+            Reserva de Parking Agregada:
+        </div>
+        <div class="card h-100">
+            <div class="card-body">                
+                <h2>{{ parking.title }}</h2>                 
+                <h3>{{ parking.address_p}}</h3>
+                <a href="{% url 'parking:parking' parking.slug %} ">
+                    <button class="btn btn-secondary">Ver mas informacion</button></a>                 
+                <br>                 
+                <br>
+                <button class="btn btn-warning"> Confirmar Reserva </button>
+             <div>            
+        </div>
+
+    </div>
+{% endblock %}

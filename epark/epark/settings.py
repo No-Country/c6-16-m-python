@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',    
-    'parking'
+    'parking',
+    'users',
+    'tikets',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +54,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'epark.urls'
+
+# dejamos de utilizar el modelo User de Django por el nuevo modelo que creamos
+AUTH_USER_MODEL = 'users.User'
 
 TEMPLATES = [
     {

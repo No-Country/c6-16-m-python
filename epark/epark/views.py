@@ -15,11 +15,17 @@ from django.contrib.auth import authenticate
 
 # para autenticar usuarios
 
+#from django.contrib.auth.models import User
+# se deja de usar para utilizar la personalizada
 # da de alta nuevos usuarios
+from users.models import User
 
 
 def index(request):
-    return render(request, 'index.html')
+    parkings = Parking.objects.all()
+    return render(request, 'index.html', {
+        'parkings': parkings,
+    })
 
 
 def login_view(request):
@@ -89,6 +95,8 @@ def logout_view(request):
 
 
 def register_view(request):
+    if request.user.is_authenticated:
+        return redirect('index')
     # Trae el formulario y se debe agregar al contexto
     form = RegisterForm(request.POST or None)
     # Si el metodo es post se genera un formulario con los datos del usuario
@@ -172,3 +180,9 @@ def parking_view(request):
     return render(request, 'parking/parkings.html', {
         'parkings': parkings,
     })
+
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'La sesion ha sido cerrada')
+    return redirect('index')

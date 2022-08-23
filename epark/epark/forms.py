@@ -1,18 +1,21 @@
 from cProfile import label
 from django import forms
 
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+# se deja de usar para utilizar la personalizada
+
+from users.models import User 
 
 class RegisterForm(forms.Form):
-    name = forms.CharField(label='Nombre',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Nombre'}))    
-    lastname = forms.CharField(label='Apellido', required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Apellido'}))
-    email = forms.EmailField(required=True)    
-    phone = forms.CharField(label='telefono',required=True)
-    country = forms.CharField(label='Pais',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Su nacionalidad'}))
-    city = forms.CharField(label='Ciudad',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Su Ciudad'}))
-    password = forms.CharField(label='Contraseña',required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Escriba su contraseña'}))
-    password2 = forms.CharField(label='Repetir contraseña', required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Repita su contraseña'}))
-    
+    name = forms.CharField(label='Nombre',required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Nombre'}))    
+    lastname = forms.CharField(label='Apellido', required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Apellido'}))
+    email = forms.EmailField(label='Escriba su E-mail', required=True,widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'E-mail'}))    
+    phone = forms.CharField(label='telefono',required=True,widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Numero de Telefono'}))
+    country = forms.CharField(label='Pais',required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Su nacionalidad'}))
+    city = forms.CharField(label='Ciudad',required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Su Ciudad'}))
+    password = forms.CharField(label='Contraseña',required=True, widget=forms.PasswordInput(attrs={'class': "form-input", 'placeholder':'Escriba su contraseña'}))
+    password2 = forms.CharField(label='Repetir contraseña', required=True, widget=forms.PasswordInput(attrs={'class': "form-input", 'placeholder':'Repita su contraseña'}))
+     
     def clean_email(self):
         # obtiene la informacion del input 
         email = self.cleaned_data.get('email')
@@ -39,16 +42,16 @@ class RegisterForm(forms.Form):
 
 
 class RegisterFormOwner(forms.Form):
-    nameOwner = forms.CharField(label='Nombre',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Nombre'}))    
-    lastnameOwner = forms.CharField(label='Apellido', required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Apellido'}))
-    emailOwner = forms.EmailField(label='Email',required=True)    
-    phoneOwner = forms.CharField(label='telefono',required=True)
-    countryOwner = forms.CharField(label='Pais',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Su nacionalidad'}))
-    cityOwner = forms.CharField(label='Ciudad',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Su Ciudad'}))
-    parkingName = forms.CharField(label='Nombre del Parqueadero', required=True, max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Nombre del Parqueadero'}))
-    parkingSpace = forms.IntegerField(label= 'Espacios dentro de Parqueadero', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Número de espacios dentro del parqueadero'}))
-    passwordOwner = forms.CharField(label='Contraseña',required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Escriba su contraseña'}))
-    password2Owner = forms.CharField(label='Repetir contraseña', required=True, widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder':'Repita su contraseña'}))
+    nameOwner = forms.CharField(label='Nombre',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder':'Nombre'}))    
+    lastnameOwner = forms.CharField(label='Apellido', required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder':'Apellido'}))
+    emailOwner = forms.EmailField(label='Email',required=True,widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'Email'}))    
+    phoneOwner = forms.CharField(label='telefono',required=True,widget=forms.TextInput(attrs={'class': "form-input", 'placeholder':'telefono'}))
+    countryOwner = forms.CharField(label='Pais',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder':'Su nacionalidad'}))
+    cityOwner = forms.CharField(label='Ciudad',required=True,max_length=255, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder':'Su Ciudad'}))
+    parkingName = forms.CharField(label='Nombre del Parqueadero', required=True, max_length=255, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder':'Nombre del Parqueadero'}))
+    parkingSpace = forms.IntegerField(label= 'Espacios dentro de Parqueadero', widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder':'Número de espacios dentro del parqueadero'}))
+    passwordOwner = forms.CharField(label='Contraseña',required=True, widget=forms.PasswordInput(attrs={'class': 'form-input', 'placeholder':'Escriba su contraseña'}))
+    password2Owner = forms.CharField(label='Repetir contraseña', required=True, widget=forms.PasswordInput(attrs={'class': 'form-input', 'placeholder':'Repita su contraseña'}))
     
     def clean_email(self):
         # obtiene la informacion del input 

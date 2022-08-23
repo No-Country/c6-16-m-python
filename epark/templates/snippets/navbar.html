@@ -1,12 +1,16 @@
 {% load static %}
+
+{% url 'login' as login %}
+{% url 'register' as register %}
+{% url 'tikets:tiket' as tiket %}
 <section class="menu">
     <nav class="menu__container">
-        <h1> <a href="{% url 'index' %}">
-                <img class="menu__logo" src="{%static 'image/logo.png' %}"></a></h1>
+        <a href="{% url 'index' %}">
+            <img class="menu__logo" src="{%static 'image/logo.png' %}"></a>
         <ul class="menu__links">
             <!--primer menu-->
             <li class="menu__item">
-                <a href="#" class="menu__link">Como Funciona</a>
+                <a href="{% url 'index' %} " class="menu__link">Home</a>
             </li>
 
             <li class="menu__item menu__item--show">
@@ -31,8 +35,9 @@
                 </ul>
             </li>
 
-
+            <!--
             <li class="menu__item menu__item--show">
+                 
                 <a href="#" class="menu__link">About <img src="{% static 'assets/arrow.svg' %}" class="menu__arrow"></a>
 
                 <ul class="menu__nesting">
@@ -46,18 +51,48 @@
                         <a href="#" class="menu__link menu__link--inside">About 3</a>
                     </li>
                 </ul>
+            </li>-->
+
+            {% if user.is_authenticated %}
+            <li class="menu__item">
+                <a href="{% url 'logout' %}" class="menu__link">Salir</a>
             </li>
+
+            <li class="menu__item">
+                <a href="{{ tiket }}" class="menu__link">Mis Reservas</a>
+            </li>
+            {% else %}
 
             <li class="menu__item">
                 <a href="{% url 'contact' %}" class="menu__link">Contacto</a>
             </li>
 
-            <li class="menu__item">
+            <li class="menu__item {% if request.path == login %}active {% endif %} ">
                 <a href="{% url 'login' %}" class="menu__link">Ingresar</a>
             </li>
+            <li class="menu__item {% if request.path == register %}active {% endif %} ">
+                <a href="{% url 'register' %}" class="menu__link">Registrarse</a>
+            </li>
+            {% endif %}
+
 
         </ul>
 
     </nav>
+    <!-- <section class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox">
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
 
+        <ul class="menu__box">
+            <li><a class="menu__item_box" href="#">Home</a></li>
+            <li><a class="menu__item_box" href="{% url 'register' %}">Registar</a></li>
+            <li><a class="menu__item_box" href="{% url 'login' %}">Ingresar</a></li>
+            <li><a class="menu__item_box" href="#">Contact</a></li>
+
+        </ul>
+</section>
+-->
+    >>>>>>> d2ac81b16c17932ea90a2f7a0c106010788c2810
 </section>
