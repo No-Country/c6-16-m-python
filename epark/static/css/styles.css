@@ -196,13 +196,10 @@ col.form-control{
 
 /*=========================CONTACTOS FORMULARIO================================*/
 
-#contenedor-formulario{
-    position:absolute;
-    top:55%;
-    left:50%;
-    transform: translate(-50%, -50%);
+div.container-contact{
     background: #fbfafa;
     border-radius:5px;
+    max-width: 500px;
     
 }
 
@@ -216,9 +213,7 @@ footer {
     background: #1b2a4e;
     min-height: 100px;
     position: absolute;
-    bottom: 0;
     width: 100%;
-    height: 40px;
 }
 footer p{
     color:#f3f3f3;
