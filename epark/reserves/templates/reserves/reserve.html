@@ -1,5 +1,53 @@
 {% extends 'base.html' %}
-
+{% load parking_extras %}
     {% block content %}
-        <h2>Reserves:</h2>
+        
+        {% if reserve.parkings.exists %}
+
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"> </th>
+                        <th scope="col"> </th>
+                        <th scope="col"> </th>
+                        <th scope="col"> </th>
+                        <th scope="col"> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for parking in reserve.parkings.all %}
+                    <tr>
+                        <th> {{ forloop.counter }} </th>
+                        <th>
+                            <a href="{% url 'parkings:parking' parking.slug %} ">
+
+                                {{ parking.title }} 
+
+                            </a> 
+                            {% include 'reserves/snippets/remove.html' %}
+                        </th>
+                        <th>
+                            <span class="font-weight-bold text-danger">
+                                {{ parking.price_hour | price_format}}
+                            </span>
+                        </th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <div class="col">
+
+            </div>
+        </div>
+        {% else %}
+        <div class="col">
+            <p class="h3">
+                Aun no tienes reservas
+            </p>
+        </div>
+
+        {% endif %}
+
     {% endblock %}

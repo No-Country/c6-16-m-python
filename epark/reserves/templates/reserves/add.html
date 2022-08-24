@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load parking_extras %}
 {% block content%}
     <div class="col">
         <div class="h1">
@@ -9,6 +9,7 @@
             <div class="card-body">                
                 <h2>{{ parking.title }}</h2>                 
                 <h3>{{ parking.address_p}}</h3>
+                <h3>{{ parking.price_hour | price_format }}</h3>
                 <a href="{% url 'parking:parking' parking.slug %} ">
                     <button class="btn btn-secondary">Ver mas informacion</button></a>                 
                 <br>                 

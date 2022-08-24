@@ -214,6 +214,7 @@ footer {
     min-height: 100px;
     position: absolute;
     width: 100%;
+    bottom: 0;
 }
 footer p{
     color:#f3f3f3;

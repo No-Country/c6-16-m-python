@@ -16,7 +16,7 @@ class Reserve(models.Model):
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.reserve_id
+        return f'{self.parkings} con id:{self.reserve_id}' 
 
 def set_reserve_id(sender, instance, *args, **kwargs):
     if not instance.reserve_id:
