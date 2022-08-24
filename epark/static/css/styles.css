@@ -12,7 +12,7 @@ body{
 }
 
 .menu{
-    background-color: #1A202C;
+    background-color: #1b2a4e;
     color: #fff;
     height: 70px;
 }
@@ -27,7 +27,12 @@ body{
     margin: 0 auto;
 }
 
-.menu__links{
+.menu__logo {
+    border-radius: 30%;
+    margin: 10px;
+    width: 70%;}
+
+.menu__links {
     height: 100%;
     transition: transform .5s;
     display: flex;
@@ -56,7 +61,7 @@ body{
 }
 
 .menu__link:hover{
-    background-color: #5e7094;
+    background-color: transparent;
 }
 
 
@@ -76,7 +81,8 @@ body{
     bottom: 0;
     width: max-content;
     transform: translateY(100%);
-    background-color: #000;
+    background-color: #1b2a4e;
+    z-index: 10;
 }
 
 .menu__link--inside{
@@ -84,7 +90,7 @@ body{
 }
 
 .menu__link--inside:hover{
-    background-color: #798499;
+    background-color:#fbfafa;
 }
 
 .menu__hamburguer{
@@ -101,6 +107,8 @@ body{
     width: 36px;
 }
 
+
+
 @media (max-width:800px){
     .menu__hamburguer{
         display: flex;
@@ -113,7 +121,7 @@ body{
 
     .menu__item--active{
         --transform: rotate(0);
-        --background: #5e7094;
+        --background: #585858;
     }
 
     .menu__item--show{
@@ -128,7 +136,7 @@ body{
         top: 70px;
         bottom: 0;
         right: 0;
-        background-color: #000;
+        background-color: #585858;
         overflow-y: auto;
         display: grid;
         grid-auto-rows: max-content;
@@ -163,78 +171,64 @@ body{
     .menu__link--inside{
         width: 90%;
         margin-left: auto;
-        border-left: 1px solid #798499;
+        border-left: 1px solid #585858;
     }
-
 }
-#menu__toggle {
-    opacity: 0;
-  }
-  #menu__toggle:checked + .menu__btn > span {
-    transform: rotate(45deg);
-  }
-  #menu__toggle:checked + .menu__btn > span::before {
-    top: 0;
-    transform: rotate(0deg);
-  }
-  #menu__toggle:checked + .menu__btn > span::after {
-    top: 0;
-    transform: rotate(90deg);
-  }
-  #menu__toggle:checked ~ .menu__box {
-    left: 0 !important;
-  }
-  .menu__btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    z-index: 1;
-  }
-  .menu__btn > span,
-  .menu__btn > span::before,
-  .menu__btn > span::after {
-    display: block;
+/*=========================Buscador================================*/
+col.form-control{
+    background-color: #fff;
+    position:absolute;
+    top:30%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border-radius:5px;
+}
+.btn btn-primary{
+
+    --bs-btn-bg: #1b2a4e;
+    --bs-btn-color: #fff;
+    
+}
+
+
+
+
+
+/*=========================CONTACTOS FORMULARIO================================*/
+
+div.container-contact{
+    background: #fbfafa;
+    border-radius:5px;
+    max-width: 500px;
+    
+}
+
+#titulo-formulario {
+    color: #3f3f3f;
+}
+
+/*=========================FOOTER================================*/
+
+footer {
+    background: #1b2a4e;
+    min-height: 100px;
     position: absolute;
     width: 100%;
-    height: 2px;
-    background-color: #616161;
-    transition-duration: .25s;
-  }
-  .menu__btn > span::before {
-    content: '';
-    top: -8px;
-  }
-  .menu__btn > span::after {
-    content: '';
-    top: 8px;
-  }
-  .menu__box {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 300px;
-    height: 100%;
-    margin: 0;
-    padding: 80px 0;
-    list-style: none;
-    background-color: #ECEFF1;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
-    transition-duration: .25s;
-  }
-  .menu__item_box {
-    display: block;
-    padding: 12px 24px;
-    color: #333;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    transition-duration: .25s;
-  }
-  .menu__item_box:hover {
-    background-color: #CFD8DC;
-  }
+}
+footer p{
+    color:#f3f3f3;
+    text-align:center;
+}
+#iconos  i {
+    font-size: 26px;
+    padding: 0 8px;
+    color:#f3f3f3;
+}
+
+/*=========================MAP================================*/
+
+div.col-map {
+    overflow: hidden;
+    border-radius: 2%;
+    width: 75%;
+}

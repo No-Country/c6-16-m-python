@@ -155,3 +155,8 @@ def logout_view(request):
     messages.success(request, 'La sesion ha sido cerrada')
     return redirect('index')
 
+def contact_view(request):
+    return render(request, 'snippets/contact.html', {
+        
+    })
+
