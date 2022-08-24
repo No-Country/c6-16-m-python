@@ -28,7 +28,7 @@ urlpatterns = [
     path("parking/parkings", ParkingListView.as_view(), name="parking"),
     path("", views.index, name='index'),
     path("parking/", include('parking.urls')),
-    path("tikets/", include('tikets.urls')),
+    path("reserves/", include('reserves.urls')),
     path("owner/register", views.register_owner_view, name="register_owner"),
     path("owner/login", views.login_owner_view, name="login_owner"),
     path("contact", views.contact_view, name="contact"),

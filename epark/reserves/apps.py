@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TiketsConfig(AppConfig):
+class ReservesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'tikets'
+    name = 'reserves'

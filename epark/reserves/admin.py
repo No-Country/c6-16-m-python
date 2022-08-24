@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Tiket
+from .models import Reserve
 # Register your models here.
 
-admin.site.register(Tiket)
+admin.site.register(Reserve)

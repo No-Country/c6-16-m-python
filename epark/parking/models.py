@@ -26,6 +26,9 @@ class Parking(models.Model):
     slug = models.SlugField(null=False, blank=False, unique=True) 
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self) -> str:
+        return self.title
+
 class Users(models.Model):
     user_name = models.CharField(max_length=50)
     user_surname = models.CharField(max_length=50)
