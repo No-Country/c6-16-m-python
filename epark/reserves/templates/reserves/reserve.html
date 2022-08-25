@@ -5,14 +5,14 @@
         {% if reserve.parkings.exists %}
 
         <div class="col-8">
-            <table class="table">
+            <table class="table text-center">
                 <thead>
                     <tr>
                         <th scope="col"> </th>
-                        <th scope="col"> </th>
-                        <th scope="col"> </th>
-                        <th scope="col"> </th>
-                        <th scope="col"> </th>
+                        <th scope="col">Parking </th>
+                        <th scope="col">Precio por hora </th>
+                        <th scope="col">Precio por estadia </th>
+                        <th scope="col">Precio semanal </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,7 +20,7 @@
                     <tr>
                         <th> {{ forloop.counter }} </th>
                         <th>
-                            <a href="{% url 'parkings:parking' parking.slug %} ">
+                            <a href="{% url 'parking:parking' parking.slug %} ">
 
                                 {{ parking.title }} 
 
@@ -30,6 +30,16 @@
                         <th>
                             <span class="font-weight-bold text-danger">
                                 {{ parking.price_hour | price_format}}
+                            </span>
+                        </th>
+                        <th>
+                            <span class="font-weight-bold text-danger">
+                                {{ parking.price_day | price_format}}
+                            </span>
+                        </th>
+                        <th>
+                            <span class="font-weight-bold text-danger">
+                                {{ parking.price_week | price_format}}
                             </span>
                         </th>
                     </tr>
