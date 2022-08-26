@@ -10,13 +10,15 @@
                     <tr>
                         <th scope="col"> </th>
                         <th scope="col">Parking </th>
+                        <th scope="col">Cantidad </th>
                         <th scope="col">Precio por hora </th>
                         <th scope="col">Precio por estadia </th>
                         <th scope="col">Precio semanal </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for parking in reserve.parkings.all %}
+                    {% for rp in reserve.parkings_related %}
+                    {% with parking=rp.parking %}
                     <tr>
                         <th> {{ forloop.counter }} </th>
                         <th>
@@ -26,6 +28,11 @@
 
                             </a> 
                             {% include 'reserves/snippets/remove.html' %}
+                        </th>
+                        <th>
+                            <span class="font-weight-bold text-success">
+                                {{ rp.quantity }}
+                            </span>
                         </th>
                         <th>
                             <span class="font-weight-bold text-danger">
@@ -43,13 +50,26 @@
                             </span>
                         </th>
                     </tr>
+                    {% endwith %}
                     {% endfor %}
                 </tbody>
-            </table>
-            
-            <div class="col">
+            </table>            
+        </div>
 
+        <div class="col-2">
+            <div class="card">
+                <div class="card-body">
+                    <div class="font-weight-bold">
+                        Subtotal ({{ reserve.parkings.count }}): <span class="text-danger" >
+                            {{ reserve.subtotal | price_format }}
+                        </span>
+                    </div>
+                    <div class="mt-2">
+                        <a href="#" class="btn btn-warning">Proceder al pago</a>
+                    </div>
+                </div>                
             </div>
+            
         </div>
         {% else %}
         <div class="col">
