@@ -29,6 +29,7 @@ def add(request):
     reserve_parking = ReserveParkings.objects.create_or_update_quantity(reserve=reserve, parking=parking, quantity=quantity)
    
     return render(request, 'reserves/add.html', {
+        'quantity': quantity,
         'parking': parking
     })
 

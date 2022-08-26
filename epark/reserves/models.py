@@ -22,6 +22,7 @@ class Reserve(models.Model):
         self.update_total()
     
     def update_subtotal(self):
+          # metodos para obtener obj parking y ReserveParking en la misma consulta
         self.subtotal = sum([cp.quantity * cp.parking.price_hour for cp in self.parkings_related()])                             
         self.save()
     
