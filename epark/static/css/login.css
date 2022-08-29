@@ -377,7 +377,7 @@ background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ 
   position: absolute;
   width: 16px;
   height: 16px;
-  border-radius: 2px;
+  
   background: #fff;
   left: 0;
   top: 50%;
