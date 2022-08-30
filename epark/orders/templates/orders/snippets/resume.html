@@ -1,0 +1,24 @@
+{% load parking_extras %}
+<div class="card">
+    <div class="card-body">
+        <div class="fw-bold h3">
+            Resumen de la compra
+        </div>
+        <div>
+            <table class="table table-border-less table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="h4">Total:</td>
+                        <td class="h5 text-success fw-bold">{{ order.total | price_format }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,10 +1,26 @@
 {% extends 'base.html' %}
 {% block content%}
+{% load parking_extras %}
 
-    <div class="col">
-        <h2>Orden</h2>
+    <div class="col-8">
+        <div class="h3">
+            Revisa tu reserva
+        </div>
+        <div class="card">
+            <div class="card-body">
+                {% for parking in reserve.parkings.all %}
+                    {% include 'orders/snippets/parking.html' %}
+                {% endfor%}                
+            </div>         
+        </div>
+        {% include 'orders/snippets/resume.html' %}
+        <div class="row">
+            <div class="col text-center">
+            <button class="btn btn-danger">Pagar</button>
+        </div>
+        </div>
     </div>
 
-    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1ARTpFq6QmYI6wUfT_qdQgPlAmlwxfRM&ehbc=2E312F" width="640" height="480"></iframe>
+    
 {% endblock%}
 

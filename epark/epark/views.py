@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from django.shortcuts import render 
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -12,12 +13,13 @@ from .forms import RegisterForm
 from .forms import RegisterFormOwner
 # para autenticar usuarios
 
+
 #from django.contrib.auth.models import User
 # se deja de usar para utilizar la personalizada
 # da de alta nuevos usuarios
 from users.models import User
-
 from parking.models import Parking
+from django.http import HttpResponseRedirect
 
 def index(request):
     parkings = Parking.objects.all()
@@ -44,6 +46,11 @@ def login_view(request):
             messages.success(request, "Bienvnido {}".format(username))
             # se debe colocar en el template si hay mensajes para visualizarlos
             
+            # si la peticion tiene la palabra next en url redirecciona a ese lugar
+            if request.GET.get('next'):
+                return HttpResponseRedirect(request.GET['next'])
+
+
             # concretada lo anterior redirije al string que se coloca dentro. 
             return redirect('index')
         # Si user retorna NONE
