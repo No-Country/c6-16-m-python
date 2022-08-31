@@ -6,9 +6,10 @@
 <div class="col">
         <h4 class=m-2 style="font-size: 32px; text-align: center"> <b>¿A dónde tienes que viajar hoy?
                 </b></h4>
-        <h4 class=m-2 style="font-size: 20px; text-align: center">El estacionamiento no es problema, lo encontrarás en Epark.
-                </h4>        
-        </div>
+        <h4 class=m-2 style="font-size: 20px; text-align: center">El estacionamiento no es problema, lo encontrarás en
+                Epark.
+        </h4>
+</div>
 
 <div class="container">
         {% include 'parking/snippets/search.html' %}
@@ -22,9 +23,13 @@
                                 {% endfor %}
                         </div>
                 </div>
-                <div class="col-map col-lg-5 col-md-6 home-about-right mt-3">
-                        <img class="map" src="{%static 'image/map.jpg'%}">
+                <div class="col-map col-lg-5 col-md-6 home-about-right">
+                        <div class="row top-map"></div>
+                        <iframe src="https://www.google.com/maps/d/embed?mid=1LaLDtSY8-fL9pZVCNApe9QV61YgQh9s&hl=en&ehbc=2E312F"
+                                class="remove-top"></iframe>
+
                 </div>
+
         </div>
 </div>
 {% endblock %}

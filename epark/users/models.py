@@ -12,8 +12,6 @@ class User(AbstractUser):
         return '{} {}'.format(self.first_name, self.last_name)
         
 
-
-
 class Customer(User):
 # Customer hereda de User (no genera otra tabla en la BBDD)
     # con el proxy true se pueden definir metodos a la clase padre.
