@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+
+{% block breadcrumb %}
+    {% include 'orders/snippets/breadcrumb.html' %}
+{% endblock %}
+
 {% block content%}
 {% load parking_extras %}
 
@@ -14,10 +19,7 @@
             </div>         
         </div>
         {% include 'orders/snippets/resume.html' %}
-        <div class="row">
-            <div class="col text-center">
-            <button class="btn btn-danger">Pagar</button>
-        </div>
+        
         </div>
     </div>
 

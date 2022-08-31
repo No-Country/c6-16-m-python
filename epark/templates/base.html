@@ -22,7 +22,8 @@
 </head>
 
 <body>
-    <div class="container">
+    {% include 'snippets/navbar.html' %}
+    <div class="container mt-2">
         {% if messages %}
         {% for message in messages %}
         <div class="alert {% if message.tags == 'success' %} alert-success {% else %} alert-danger {% endif %}">
@@ -31,8 +32,9 @@
         </div>
         {% endfor %}
         {% endif %}
+        {% block breadcrumb %}
+        {% endblock %}
     </div>
-    {% include 'snippets/navbar.html' %}
     {% block content %}
     {% endblock %}
     {% include 'snippets/footer.html' %}
