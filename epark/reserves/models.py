@@ -20,6 +20,14 @@ class Reserve(models.Model):
     def update_totals(self):
         self.update_subtotal()
         self.update_total()
+        """
+        # se intenta obtener la orden de la reserva
+        order = self.order_set.first()
+        # si la orden existe se actualiza su total (por si se modifico)
+        if order:
+            order.update_total()"""
+        if self.order:
+            self.order.update_total()
     
     def update_subtotal(self):
           # metodos para obtener obj parking y ReserveParking en la misma consulta
@@ -28,12 +36,17 @@ class Reserve(models.Model):
     
     def update_total(self):
         FEE = 0.05
-        self.total = self.subtotal + (self.subtotal * 1)
+        self.total = self.subtotal 
         self.save()
 
     def parkings_related(self):
         # Mejora el pedido de consulta relacionada a una sola consulta
         return self.reserveparkings_set.select_related('parking')
+
+    @property
+    def order(self):
+        # order_set es la relacion uno a muchos
+        return self.order_set.first()
 
 class ReserveParkingsManager(models.Manager):
     
