@@ -23,6 +23,7 @@
 </head>
 
 <body>
+    {% include 'snippets/navbar.html' %}
     <div class="container">
         {% if messages %}
         {% for message in messages %}
@@ -32,6 +33,8 @@
         </div>
         {% endfor %}
         {% endif %}
+        {% block breadcrumb %}
+        {% endblock %}
     </div>
     {% include 'snippets/navbar.html' %}
     <div class="content">

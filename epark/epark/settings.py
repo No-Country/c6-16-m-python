@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'users',
     'reserves',
     'django_google_maps',
+    'orders'
 ]
 
 MIDDLEWARE = [

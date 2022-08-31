@@ -36,7 +36,7 @@ class Users(models.Model):
     mail_u = models.EmailField()
     country_u = models.CharField(max_length=30)
     city_u = models.CharField(max_length=30)
-    car_plate = models.CharField(max_length=20)
+    car_plate = models.CharField(max_length=20, default="sin confirmar")
     # card = models.CharField(max_length=20)
 
 class Reservations(models.Model):
