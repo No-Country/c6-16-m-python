@@ -29,7 +29,7 @@ body{
 
 .menu__logo {
     margin: 10px;
-    width: 85%;}
+    width: 140px;}
 
 .menu__links {
     height: 100%;
@@ -174,7 +174,7 @@ body{
     }
 }
 /*=========================Buscador================================*/
-col.form-control{
+col.form-control col.form-input{
     background-color: #fff;
     position:absolute;
     top:30%;
