@@ -195,7 +195,13 @@ col.form-control col.form-input{
 }
 
 
-
+div.container-login{
+    background: #1b2a4e;
+    border-radius:5px;
+    max-width: 500px;
+    color: white;
+    
+}
 
 
 /*=========================CONTACTOS FORMULARIO================================*/
