@@ -43,7 +43,7 @@ def login_view(request):
             # para generar una sesion necesita peticion (request) y el usuario (user)
             login(request, user)
             # Mensaje de login correcto 
-            messages.success(request, "Bienvnido {}".format(username))
+            messages.success(request, "Bienvenido {}".format(username))
             # se debe colocar en el template si hay mensajes para visualizarlos
             
             # si la peticion tiene la palabra next en url redirecciona a ese lugar
