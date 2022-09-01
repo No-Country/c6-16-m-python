@@ -1,32 +1,37 @@
-
 {% extends 'base.html' %}
     {% block content %}
-<div class="row">
-    <p class="h2">Informacion del Parking</p>
-<div class="col-4 card">
-    <div class="h2">
-        {{ parking.title}}
+<div class="row ">    
+    <div class=" col-md-3 text-left">
+        <div class="h1">
+            {{ parking.title}}
+        </div>
+        <div class="h2">
+            {{ parking.address_p}}
+        </div>
+        <div class="h4 font-weight-bold">
+            Precio hora: <span>${{ parking.price_hour}}</span>
+        </div>
+        <div class="h4 font-weight-bold">
+            Precio Dia: <span> ${{ parking.price_day}}</span>
+        </div>
+        <div class="h4 font-weight-bold">
+            Precio Semana: <span>${{ parking.price_week}}</span>
+        </div>
+        <div class="h4 font-weight-bold">
+            Precio Mensual: <span>${{ parking.price_month}}</span>
+        </div>
+        <div>
+            {% include 'reserves/snippets/add.html' %}
+        </div>
     </div>
-    <div class="h3">
-        {{ parking.address_p}}
-    </div>
-    <div class="h4 font-weight-bold">
-        Precio hora: <span>${{ parking.price_hour}}</span>
-    </div>
-    <div class="h4 font-weight-bold">
-        Precio Dia: <span> ${{ parking.price_day}}</span>
-    </div>
-    <div class="h4 font-weight-bold">
-        Precio Semana: <span>${{ parking.price_week}}</span>
-    </div>
-    <div class="h4 font-weight-bold">
-        Precio Mensual: <span>${{ parking.price_month}}</span>
-    </div>
-    <div>
+
+    <div class="col-map col-lg-5 col-md-5">
+        <br>
+        <div class="row top-map"></div>
+            Mapa de parqueadero: <span>{url_map} </span>
+        <iframe src={{ url_map}}
+        width="750" height="450" class="align-middle text-center shadow bg-white border border-4 border-primary" style="text-align: center; border:4;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+
     </div>
 </div>
-<div class="col-5 card">
-    {% include 'reserves/snippets/add.html' %}
-</div>
-</div>
-{% endblock %}
+    {% endblock %}
