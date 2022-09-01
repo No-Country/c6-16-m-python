@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',    
     'parking',
     'users',
-    'reserves',
-    'django_google_maps',
+    'reserves',    
     'orders'
 ]
 
