@@ -1,6 +1,7 @@
 <form action="{% url 'reserves:add' %}" method="post">
     {% csrf_token %}
     <input type="hidden" name="parking_id" value="{{ parking.id }} ">
+    <p class="h3 p-1">Seleccionar cantidad de Horas</p>
     <div class="d-flex">
         <button type="button" class="btn btn-secondary" id="remove">-</button>
         <input type="number" name="quantity" value="1" class="form-control col-sm-1 text-center" style="width: 50px;" id="quantity" readonly>

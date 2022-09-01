@@ -1,11 +1,13 @@
 
 {% extends 'base.html' %}
     {% block content %}
-<div class="col">
-    <div class="h1">
+<div class="row">
+    <p class="h2">Informacion del Parking</p>
+<div class="col-4 card">
+    <div class="h2">
         {{ parking.title}}
     </div>
-    <div class="h2">
+    <div class="h3">
         {{ parking.address_p}}
     </div>
     <div class="h4 font-weight-bold">
@@ -21,7 +23,10 @@
         Precio Mensual: <span>${{ parking.price_month}}</span>
     </div>
     <div>
-        {% include 'reserves/snippets/add.html' %}
     </div>
 </div>
-    {% endblock %}
+<div class="col-5 card">
+    {% include 'reserves/snippets/add.html' %}
+</div>
+</div>
+{% endblock %}

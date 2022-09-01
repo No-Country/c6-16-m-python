@@ -3,17 +3,18 @@
     {% block content %}
         
         {% if reserve.parkings.exists %}
-
-        <div class="col-8">
+        <div class="row mt-3 p-3">
+        <div class="col-5 card">
             <table class="table text-center">
                 <thead>
                     <tr>
                         <th scope="col"> </th>
                         <th scope="col">Parking </th>
-                        <th scope="col">Cantidad </th>
+                        <th scope="col">Horas </th>
                         <th scope="col">Precio por hora </th>
+                        <!--
                         <th scope="col">Precio por estadia </th>
-                        <th scope="col">Precio semanal </th>
+                        <th scope="col">Precio semanal </th>-->
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +40,7 @@
                                 {{ parking.price_hour | price_format}}
                             </span>
                         </th>
+                        <!--
                         <th>
                             <span class="font-weight-bold text-danger">
                                 {{ parking.price_day | price_format}}
@@ -48,7 +50,7 @@
                             <span class="font-weight-bold text-danger">
                                 {{ parking.price_week | price_format}}
                             </span>
-                        </th>
+                        </th>-->
                     </tr>
                     {% endwith %}
                     {% endfor %}
@@ -79,5 +81,5 @@
         </div>
 
         {% endif %}
-
+    </div>
     {% endblock %}
