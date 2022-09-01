@@ -11,7 +11,38 @@
         <button type="submit" class="btn btn-warning"> Reservar Parking </button>
     </div>
 </form>
-
+<div class="card">
+    <p class="h2 text-center">Reserva</p>
+    <div class="row">
+        <div class="col">
+            <form action="{% url 'reserves:add' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="parking_id" value="{{ parking.id }} ">       
+                <div class="mt-2">
+                    <button type="submit" name='quantity' value="20" class="btn btn-warning btn-sm">Estadia</button>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <form action="{% url 'reserves:add' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="parking_id" value="{{ parking.id }} ">       
+                <div class="mt-2">
+                    <button type="submit" name='quantity' value="110" class="btn btn-warning btn-sm ">Semanal</button>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <form action="{% url 'reserves:add' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="parking_id" value="{{ parking.id }} ">       
+                <div class="mt-2">
+                    <button type="submit" name='quantity' value="500" class="btn btn-warning btn-sm btn-block">Mensual</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <script>
     const add = document.getElementById('add')
     const remove = document.getElementById('remove')

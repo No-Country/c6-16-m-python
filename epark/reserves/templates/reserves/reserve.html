@@ -10,7 +10,7 @@
                     <tr>
                         <th scope="col"> </th>
                         <th scope="col">Parking </th>
-                        <th scope="col">Horas </th>
+                        <th scope="col">Tiempo de Reserva</th>
                         <th scope="col">Precio por hora </th>
                         <!--
                         <th scope="col">Precio por estadia </th>
@@ -32,7 +32,15 @@
                         </th>
                         <th>
                             <span class="font-weight-bold text-success">
+                                {% if rp.quantity == 500 %}
+                                <p>Mes</p>
+                                {% elif rp.quantity == 110 %}
+                                <p>Semana</p>
+                                {% elif rp.quantity == 20 %}
+                                <p>Dia</p>
+                                {% else %}                                
                                 {{ rp.quantity }}
+                                {% endif %}
                             </span>
                         </th>
                         <th>
