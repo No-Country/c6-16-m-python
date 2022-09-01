@@ -26,7 +26,10 @@
             <a class="dropdown-item" href="{% url 'parking' %}">Estacionamientos</a>
           </div>
         </li>
-        {% if true %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contacto</a>
+        </li>
+        {% if user.is_authenticated %}
         <li class="nav-item">
             <a href="{% url 'logout' %}" class="nav-link">Salir</a>
         </li>
@@ -34,16 +37,14 @@
         <li class="nav-item">
             <a href="{{ reserve }}" class="nav-link">Mis Reservas</a>
         </li>
-        {% endif %}
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contacto</a>
-        </li>
-        <li class="nav-item">
+        {% else %}
+        <li class="nav-item  {% if request.path == login %}active {% endif %}">
             <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{% url 'register' %}">Registrarse</a>
         </li>
+        {% endif %}
       </ul>
     </div>
   </nav>
