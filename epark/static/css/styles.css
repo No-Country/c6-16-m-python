@@ -221,10 +221,11 @@ div.container-contact{
 
 footer {
     background: #1b2a4e;
-    height: 60px;
+    min-height: 60px;
     position: absolute;
     width: 100%;
     bottom: 0;
+    min-width: 300px;
     
 }
 footer p{
@@ -258,6 +259,11 @@ div.top-map{
 div.content{
     margin-bottom: 60px;
     padding: 5px;
+    min-width: 300px;
+}
+
+nav.top-nav-bar{
+    min-width: 300px;
 }
 
 
