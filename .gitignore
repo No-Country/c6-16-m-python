@@ -9,7 +9,7 @@ ENV/
 env.bak/ 
 venv.bak/ 
 venv
-epark/db.sqlite3
+
 # Django #
 *.log
 *.pot
