@@ -3,62 +3,48 @@
 {% url 'login' as login %}
 {% url 'register' as register %}
 {% url 'reserves:reserve' as reserve %}
-<section class="menu">
-    <nav class="menu__container">
-        <a href="{% url 'index' %}">
-            <img class="menu__logo" src="{%static 'image/logo.png' %}"></a>
-        <ul class="menu__links">
-            <!--primer menu-->
-            <li class="menu__item">
-                <a href="{% url 'index' %} " class="menu__link">Home</a>
-            </li>
 
-            <li class="menu__item menu__item--show">
-                <!-- item--show que tenga esa clase como modificador-->
-                <a href="#" class="menu__link">Parkings <img src="{% static 'assets/arrow.svg' %}"
-                        class="menu__arrow"></a>
-                <!--imagen que tendra dentro un submenu y referencia assets-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-ligth" style="background-color: #1b2a4e;">
+    <a class="navbar-brand" href="{% url 'index' %}"><img class="menu__logo" src="{%static 'image/logo.png' %}"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Parkings
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Usuario</a>
+            <a class="dropdown-item" href="#">Administrador</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'parking' %}">Estacionamientos</a>
+          </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contacto</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a href="{% url 'logout' %}" class="nav-link">Salir</a>
+        </li>
 
-                <ul class="menu__nesting">
-                    <!--para hacer el menu desplegable, un menu anidado-->
-                    <li class="menu__inside">
-                        <!-- meunu interno-->
-                        <a href="#" class="menu__link menu__link--inside">Usuario</a>
-                        <!--menu modificador-->
-                    </li>
-                    <li class="menu__inside">
-                        <a href="#" class="menu__link menu__link--inside">Administrador</a>
-                    </li>
-                    <li class="menu__inside">
-                        <a href="{% url 'parking' %} " class="menu__link menu__link--inside">Estacionamientos</a>
-                    </li>
-                </ul>
-            </li>
-
-            {% if user.is_authenticated %}
-            <li class="menu__item">
-                <a href="{% url 'logout' %}" class="menu__link">Salir</a>
-            </li>
-
-            <li class="menu__item">
-                <a href="{{ reserve }}" class="menu__link">Mis Reservas</a>
-            </li>
-            {% else %}
-
-            <li class="menu__item">
-                <a href="{% url 'contact' %}" class="menu__link">Contacto</a>
-            </li>
-
-            <li class="menu__item {% if request.path == login %}active {% endif %} ">
-                <a href="{% url 'login' %}" class="menu__link">Ingresar</a>
-            </li>
-            <li class="menu__item {% if request.path == register %}active {% endif %} ">
-                <a href="{% url 'register' %}" class="menu__link">Registrarse</a>
-            </li>
-            {% endif %}
-
-
-        </ul>
-
-    </nav>
-</section>
+        <li class="nav-item">
+            <a href="{{ reserve }}" class="nav-link">Mis Reservas</a>
+        </li>
+        {% else %}
+        <li class="nav-item  {% if request.path == login %}active {% endif %}">
+            <a class="nav-link" href="{% url 'login' %}">Ingresar</a>
+        </li>
+        <li class="nav-item {% if request.path == register %}active {% endif %}">
+            <a class="nav-link" href="{% url 'register' %}">Registrarse</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>

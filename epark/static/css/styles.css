@@ -241,21 +241,18 @@ footer p{
 
 div.col-map {
     overflow: hidden;
-    border-radius: 2%;
-    width: 75%;
 }
 
 iframe.remove-top{
     width: 100%;
     height: 450px;
-    margin-top: -50px!important;
+    margin-top: -70px!important;
 }
 
 div.top-map{
-    width: 100%;
     height: 20px;
     background: white;
-    position: absolute;
+    position: relative;
 }
 
 div.content{
