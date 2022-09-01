@@ -1,4 +1,4 @@
-from cProfile import label
+
 from django import forms
 
 #from django.contrib.auth.models import User
@@ -7,7 +7,7 @@ from django import forms
 from users.models import User 
 
 class RegisterForm(forms.Form):
-    name = forms.CharField(label='Nombre',required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'placeholder':'Nombre'}))    
+    name = forms.CharField(label='Nombre',required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'placeholder':'Nombre de Usuario'}))    
     lastname = forms.CharField(label='Apellido', required=True,max_length=255, widget=forms.TextInput(attrs={'class': "form-control", 'placeholder':'Apellido'}))
     email = forms.EmailField(label='Escriba su E-mail', required=True,widget=forms.EmailInput(attrs={'class': "form-control", 'placeholder':'E-mail'}))    
     phone = forms.CharField(label='telefono',required=True,widget=forms.TextInput(attrs={'class': "form-control", 'placeholder':'Numero de Telefono'}))

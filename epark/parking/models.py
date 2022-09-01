@@ -22,6 +22,7 @@ class Parking(models.Model):
     country_p = models.CharField(max_length=30)
     city_p = models.CharField(max_length=30)
     slots =  models.IntegerField()    
+    url_map = models.CharField(max_length=500)
     avalaible = models.BooleanField(default=True)
     slug = models.SlugField(null=False, blank=False, unique=True) 
     created_at = models.DateTimeField(auto_now_add=True)

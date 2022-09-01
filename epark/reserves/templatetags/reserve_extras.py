@@ -5,11 +5,11 @@ register = template.Library()
 
 @register.filter()
 def quantity_parking_format(quantity=1):
-    return '{} {}'.format(quantity, 'parkings' if quantity > 1 else 'parking')
+    return '{} {}'.format(quantity, 'horas' if quantity > 1 else 'hora')
 
 @register.filter()
 def quantity_add_format(quantity=1):
     return '{} {}'.format(
         quantity_parking_format(quantity),
-        'agregados' if quantity > 1 else 'agregado'
+        'agregadas' if quantity > 1 else 'agregada'
      )
