@@ -1,6 +1,6 @@
 const tarjeta = document.querySelector('#tarjeta'),
 	  btnAbrirFormulario = document.querySelector('#btn-abrir-formulario'),
-	  formulario = document.querySelector('#formulario-tarjeta active'),
+	  formulario = document.querySelector('#formulario-tarjeta'),
 	  numeroTarjeta = document.querySelector('#tarjeta .numero'),
 	  nombreTarjeta = document.querySelector('#tarjeta .nombre'),
 	  logoMarca = document.querySelector('#logo-marca'),
