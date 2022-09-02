@@ -19,3 +19,19 @@ def order(request):
         'breadcrumb': breadcrumb()
         
     } )
+
+@login_required(login_url='login')
+def credit_card(request):
+    return render(request, 'orders/credit_card.html')
+
+@login_required(login_url='confirm')
+def confirm(request):
+    reserve = get_or_create_reserve(request)
+    order = get_or_create_order(reserve, request)
+    
+    return render(request, 'orders/confirm.html', {
+        'reserve':reserve,
+        'order':order,
+        'breadcrumb': breadcrumb()
+        
+    } )
