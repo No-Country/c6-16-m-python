@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
     {% block content %}
 <div class="row ">    
-    <div class=" col-md-4 text-left">
-        <div class="h2">
+    <div class="container-contact container  border-top border-primary  col-md-3 text-left">
+        <div class="h4">
             {{ parking.title}}
         </div>
-        <div class="h3">
+        <div class="h5">
             {{ parking.address_p}}
         </div>        
         <div>
@@ -13,12 +13,9 @@
         </div>
     </div>
 
-    <div class="col-map col-lg-5 col-md-5">
-        <br>
-        <div class="row top-map">
-        </div>
-        <iframe src={{ parking.url_map }}
-        width="750" height="450" class="align-middle text-center shadow bg-white border border-4 border-primary" style="text-align: center; border:4;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+    <div class="col col-map">
+        <div class="row"><div class="row top-map"></div></div>
+        <iframe src={{ parking.url_map }} class="remove-top" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
 
     </div>
 </div>
