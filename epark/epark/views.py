@@ -159,7 +159,7 @@ def parking_view(request):
 
 def logout_view(request):
     logout(request)
-    messages.success(request, 'La sesion ha sido cerrada')
+    messages.success(request, 'La sesión ha sido cerrada')
     return redirect('index')
 
 def contact_view(request):
