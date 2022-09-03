@@ -2,14 +2,17 @@
 <form action="{% url 'reserves:add' %}" method="post">
     {% csrf_token %}
     <input type="hidden" name="parking_id" value="{{ parking.id }} ">
-    <p class="h3 p-1">Reserva por Horas</p>
-    <div class="d-flex">
-        <button type="button" class="btn btn-secondary" id="remove">-</button>
-        <input type="number" name="quantity" value="1" class="form-control col-sm-1 text-center" style="width: 50px;" id="quantity" readonly>
-        <button type="button" class="btn btn-secondary" id="add">+</button>
-    
-        <div class="mt-2">
-            <button type="submit" class="btn btn-warning"> Reservar</button>
+    <p class="ft-5 p-1">Reserva por Horas</p>
+    <div class="row">
+        <div class="d-flex">
+            <button type="button" class="btn btn-secondary" id="remove">-</button>
+            <input type="number" name="quantity" value="1" class="form-control col-sm-1 text-center" style="width: 50px;" id="quantity" readonly>
+            <button type="button" class="btn btn-secondary" id="add">+</button>
+        </div>
+        <div class="row mt-2">
+            <div class="d-flex">
+                <button type="submit" class="btn btn-warning"> Reservar</button>
+            </div>
         </div>
     </div>
 </form>
