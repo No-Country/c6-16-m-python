@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qox_zfld5c3xm+7%85dkybdkcsin3r6zi!r^jb6drgo6od=)#$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -134,4 +134,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-GOOGLE_MAPS_API_KEY = "AIzaSyDQmE7TFxmR1cJABYp_8nT2SaGfBYYLzzg"
+import django_heroku
+django_heroku.settings(locals())
